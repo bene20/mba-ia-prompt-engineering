@@ -1,0 +1,49 @@
+Pergunta: Me ensine, na prática, dizendo o que exatamente eu deveria digitar no prompt para usar este projeto em uma pasta de um projeto meu de nome intranet-legado. Considere que a pasta está no caminho fake /meu/projeto/intranet-legado
+
+Resposta: Com certeza! Vamos simular isso na prática.
+
+Para executar o relatório completo do seu projeto "intranet-legado" que está no caminho /meu/projeto/intranet-legado, você usaria o comando principal run-project-state-full-report e especificaria a pasta do
+  projeto com o argumento --project-folder.
+
+  Você digitaria exatamente isto no seu prompt:
+
+   1 /run-project-state-full-report --project-folder=/meu/projeto/intranet-legado
+
+  O que aconteceria a seguir (e como eu te guiaria):
+
+  Ao receber esse comando, eu, como seu Coordenador Mestre, começaria a orquestrar os agentes da seguinte forma:
+
+   1. Fase 1: Inicialização do `orchestrator`
+       * Eu chamaria o agente orchestrator para iniciar o processo, definindo o /meu/projeto/intranet-legado como a pasta do projeto a ser analisada.
+       * O orchestrator criaria as pastas necessárias dentro da estrutura docs/agents/ (padrão, já que você não especificou --output-folder) e o arquivo MANIFEST.md.
+       * Eu te informaria: "Iniciando a análise do projeto 'intranet-legado'. O agente orchestrator está preparando o ambiente e o MANIFEST.md inicial."
+
+   2. Fase 2: Análise Paralela (Auditoria de Dependências e Arquitetura)
+       * Em paralelo, eu chamaria:
+           * O dependency-auditor para escanear seu projeto em busca de dependências e vulnerabilidades.
+           * O architectural-analyzer para mapear a arquitetura de alto nível da sua "intranet-legado".
+       * Conforme cada um desses agentes completasse sua tarefa, eu chamaria o orchestrator novamente para registrar seus respectivos relatórios (dependencies-report-*.md e architectural-report-*.md) no
+         MANIFEST.md.
+       * Eu te informaria sobre o progresso de cada um e quando seus relatórios fossem registrados. Ex: "Agente dependency-auditor concluiu a análise e o relatório foi registrado. Agente architectural-analyzer
+         em andamento."
+
+   3. Fase 3: Análise Detalhada dos Componentes
+       * Uma vez que o architectural-analyzer terminasse, eu leria o relatório dele para identificar a lista de "Componentes Críticos" da sua intranet.
+       * Para cada um desses componentes, eu iniciaria uma nova tarefa com o component-deep-analyzer. Por exemplo, se ele identificasse "Módulo de Usuários" e "Módulo de Relatórios", eu faria:
+           * Task(component-deep-analyzer, component="Módulo de Usuários")
+           * Task(component-deep-analyzer, component="Módulo de Relatórios")
+       * Essas análises também ocorreriam em paralelo. A cada relatório de componente finalizado (component-analysis-MóduloDeUsuarios-*.md, etc.), eu chamaria o orchestrator para registrar a informação no
+         MANIFEST.md.
+       * Eu te manteria informado sobre quantos componentes foram identificados e o progresso da análise de cada um.
+
+   4. Fase 4: Finalização do `orchestrator`
+       * Após todos os relatórios dos componentes serem gerados e registrados, eu chamaria o orchestrator pela última vez para fazer a validação final do MANIFEST.md.
+       * Eu te informaria: "Agente orchestrator finalizando o MANIFEST.md, verificando a integridade e links."
+
+   5. Fase 5: Geração do `README.md` Final (Meu Trabalho)
+       * Nesta fase, eu leria o MANIFEST.md completo e geraria o arquivo README-YYYY-MM-DD-HH:MM:SS.md com um sumário e links para todos os relatórios detalhados.
+       * Este README.md final seria salvo no diretório do orchestrator (por exemplo, docs/agents/orchestrator/).
+       * Eu te apresentaria a mensagem final: "Relatório completo do projeto 'intranet-legado' gerado com sucesso! Você pode encontrar o README.md final e todos os relatórios em docs/agents/orchestrator/."
+
+  Em resumo, você só precisaria digitar o comando inicial. Eu faria o restante do trabalho de coordenação e te manteria informado sobre cada passo do processo.
+
